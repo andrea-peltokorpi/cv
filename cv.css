@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.entry-detail,
+.entry-bullets p {
+  font-size: 12pt;
+}
+
+body {
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+  font-size: 11pt;
+  color: #111;
+  background: #fff;
+  line-height: 1.3;
+  letter-spacing: -0.03em;
+}
+
+/* ── Page shell ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 70mm 1fr;
+  position: relative;
+}
+
+.page::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 70mm;
+  width: 4px;
+  height: 100%;
+  background: #4a9e9e;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ── Left column ── */
+.left {
+  background: #1a3d3d;
+  color: #e8f5f5;
+  padding: 20mm 10mm 20mm 14mm;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.photo-box {
+  margin: -20mm -10mm 14mm -14mm;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.name {
+  font-size: 26pt;
+  color: #1a3d3d;
+  letter-spacing: 0.08em;
+  margin-bottom: 6mm;
+  padding-bottom: 5mm;
+  border-bottom: 1px solid #ddd;
+  line-height: 1.15;
+}
+
+.name-first {
+  font-weight: 300;
+  display: block;
+}
+
+.name-last {
+  font-weight: 700;
+  display: block;
+}
+
+.left-section {
+  margin-bottom: 9mm;
+}
+
+.left-section + .left-section {
+  border-top: 1px solid rgba(74, 158, 158, 0.45);
+  padding-top: 7mm;
+}
+
+.right-section + .right-section {
+  border-top: 1px solid #ddd;
+  padding-top: 3mm;
+}
+
+.left-section li {
+  list-style: none;
+}
+
+#contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 2mm;
+  margin-bottom: 1.5mm;
+}
+
+#contact li svg {
+  flex-shrink: 0;
+  margin-top: 0.8mm;
+}
+
+.left-section-title {
+  color: #4a9e9e;
+  letter-spacing: 0.08em;
+}
+
+.tech-group {
+  margin-bottom: 5mm;
+}
+
+/* ── Right column ── */
+.right {
+  background: #faf8f5;
+  padding: 20mm 14mm 20mm 12mm;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.right-section {
+  margin-bottom: 3mm;
+}
+
+.profile-text p {
+  text-align: justify;
+  margin-bottom: 3mm;
+}
+
+/* ── Shared heading style ── */
+.left-section-title,
+.right-section-title,
+.entry-date,
+.entry-role,
+.entry-company {
+  font-size: 12pt;
+  font-weight: 700;
+  margin-bottom: 1mm;
+}
+
+.left-section-title,
+.right-section-title {
+  text-transform: uppercase;
+}
+
+.left-section-title {
+  margin-bottom: 5mm;
+}
+
+.entry-role {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.right-section-title {
+  font-size: 14pt;
+  letter-spacing: 0.08em;
+  margin-bottom: 3mm;
+}
+
+/* ── Work / Education entries ── */
+.entry {
+  display: grid;
+  grid-template-columns: 32mm 1fr;
+  align-items: baseline;
+  gap: 0 4mm;
+  margin-bottom: 4mm;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-bullets p {
+  text-align: justify;
+  margin-bottom: 3mm;
+  font-size: 11pt;
+}
+
+.entry-bullets p:last-child {
+  margin-bottom: 0;
+}
+
+.hobbies-text {
+  text-align: justify;
+}
+
+/* ── Print ── */
+@page {
+  margin: 0;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .page {
+    margin: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/* ── Screen preview shadow ── */
+@media screen {
+  body {
+    background: #c8c8c8;
+    padding: 10mm 0;
+  }
+
+  .page {
+    background: #faf8f5;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
+  }
+}

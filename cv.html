@@ -4,383 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="cv.css" />
     <title>CV</title>
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      .entry-detail,
-      .entry-bullets p {
-        font-size: 12pt;
-      }
-
-      body {
-        font-family: 'Lato', Calibri, Arial, sans-serif;
-        font-size: 11pt;
-        color: #111;
-        background: #fff;
-        line-height: 1.3;
-        letter-spacing: -0.03em;
-      }
-
-      /* ── Page shell ── */
-      .page {
-        width: 210mm;
-        min-height: 297mm;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 70mm 1fr;
-        position: relative;
-      }
-
-      .page::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 70mm;
-        width: 4px;
-        height: 100%;
-        background: #4a9e9e;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      /* ── Left column ── */
-      .left {
-        background: #1a3d3d;
-        color: #e8f5f5;
-        padding: 20mm 10mm 20mm 14mm;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .photo-box {
-        margin: -20mm -10mm 14mm -14mm;
-        aspect-ratio: 3 / 4;
-        overflow: hidden;
-        flex-shrink: 0;
-      }
-
-      .photo-box img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-      }
-
-      .name {
-        font-size: 26pt;
-        color: #1a3d3d;
-        letter-spacing: 0.08em;
-        margin-bottom: 6mm;
-        padding-bottom: 5mm;
-        border-bottom: 1px solid #ddd;
-        line-height: 1.15;
-      }
-
-      .name-first {
-        font-weight: 300;
-        display: block;
-      }
-
-      .name-last {
-        font-weight: 700;
-        display: block;
-      }
-
-      .left-section {
-        margin-bottom: 9mm;
-      }
-
-      .left-section + .left-section {
-        border-top: 1px solid rgba(74, 158, 158, 0.45);
-        padding-top: 7mm;
-      }
-
-      .right-section + .right-section {
-        border-top: 1px solid #ddd;
-        padding-top: 3mm;
-      }
-
-      .left-section li {
-        list-style: none;
-      }
-
-      #contact li {
-        display: flex;
-        align-items: flex-start;
-        gap: 2mm;
-        margin-bottom: 1.5mm;
-      }
-
-      #contact li svg {
-        flex-shrink: 0;
-        margin-top: 0.8mm;
-      }
-
-      .left-section-title {
-        color: #4a9e9e;
-        letter-spacing: 0.08em;
-      }
-
-      .tech-group {
-        margin-bottom: 5mm;
-      }
-
-      /* ── Right column ── */
-      .right {
-        background: #faf8f5;
-        padding: 20mm 14mm 20mm 12mm;
-        display: flex;
-        flex-direction: column;
-        gap: 0;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .right-section {
-        margin-bottom: 3mm;
-      }
-
-      .profile-text p {
-        text-align: justify;
-        margin-bottom: 3mm;
-      }
-
-      /* ── Shared heading style ── */
-      .left-section-title,
-      .right-section-title,
-      .entry-date,
-      .entry-role,
-      .entry-company {
-        font-size: 12pt;
-        font-weight: 700;
-        margin-bottom: 1mm;
-      }
-
-      .left-section-title,
-      .right-section-title {
-        text-transform: uppercase;
-      }
-
-      .left-section-title {
-        margin-bottom: 5mm;
-      }
-
-      .entry-role {
-        font-weight: 400;
-        font-style: italic;
-      }
-
-      .right-section-title {
-        font-size: 14pt;
-        letter-spacing: 0.08em;
-        margin-bottom: 3mm;
-      }
-
-      /* ── Work / Education entries ── */
-      .entry {
-        display: grid;
-        grid-template-columns: 32mm 1fr;
-        align-items: baseline;
-        gap: 0 4mm;
-        margin-bottom: 4mm;
-      }
-
-      .entry:last-child {
-        margin-bottom: 0;
-      }
-
-      .entry-bullets p {
-        text-align: justify;
-        margin-bottom: 3mm;
-        font-size: 11pt;
-      }
-
-      .entry-bullets p:last-child {
-        margin-bottom: 0;
-      }
-
-      .hobbies-text {
-        text-align: justify;
-      }
-
-      /* ── Print ── */
-      @page {
-        margin: 0;
-      }
-
-      @media print {
-        body {
-          background: #fff;
-        }
-
-        .page {
-          margin: 0;
-          width: 100%;
-          box-shadow: none;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-      }
-
-      /* ── Screen preview shadow ── */
-      @media screen {
-        body {
-          background: #c8c8c8;
-          padding: 10mm 0;
-        }
-
-        .page {
-          background: #faf8f5;
-          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.18);
-        }
-      }
-    </style>
-    <script>
-      // ============================================================
-      // CV DATA — edit everything here
-      // ============================================================
-
-      const CV = {
-        name: 'Andrea Peltokorpi',
-        photo: 'photos/photo.jpg',
-
-        contact: [
-          { icon: 'phone', text: '+358 40 685 9920' },
-          { icon: 'email', text: 'apeltoko@gmail.com' },
-          { icon: 'location', text: 'Oulu' },
-          { icon: 'linkedin', text: 'anpeltok' },
-        ],
-
-        languages: ['Finnish — native', 'English — excellent'],
-
-        // Each item becomes its own paragraph group in the sidebar
-        technologies: [
-          'TypeScript, JavaScript, React,',
-          'Node.js, PostgreSQL, AWS',
-          'Clojure, PHP, Drupal',
-          'GitHub Copilot, Claude Code, Amazon Q',
-        ],
-
-        profile: [
-          'Full-stack developer based in Oulu with 6+ years of professional experience. Detail-oriented (some might say nitpicky) and able to ramp up fast on unfamiliar stacks. When something catches my interest, I dig deep until I understand it.',
-          'Strong frontend skills in React/TypeScript, backend experience spanning Node.js, Clojure and PHP/Drupal, with PostgreSQL and AWS experience. Interested and experienced in integrating AI development tools into daily workflow.',
-        ],
-
-        // Each job: { dates, role, company, bullets }
-        work: [
-          {
-            dates: '2022—Present',
-            role: 'Developer',
-            company: 'Nordcloud Oy',
-            bullets: [
-              'Full-stack development on multiple public sector projects.',
-              'Multi-year development on a transport infra-structure management system. Built on AWS with Clojure, TypeScript and React.',
-              'Primary developer on a critical railway infra-structure feature, coordinating with stakeholders across multiple organizations. Built on AWS with TypeScript, React and PostgreSQL.',
-            ],
-          },
-          {
-            dates: '2020—2022',
-            role: 'Developer',
-            company: 'Exove Oy',
-            bullets: [
-              'Full-stack development across multiple public-facing projects. Primarily Drupal/PHP with JavaScript, React, Node.js.',
-            ],
-          },
-        ],
-
-        // Each degree: { year, degree, field, school }
-        education: [
-          {
-            year: '2021',
-            degree: 'Bachelor of Science',
-            field: 'Information processing science',
-            school: 'University of Oulu',
-          },
-        ],
-
-        hobbies:
-          'Storytelling across different media — video games, films, tabletop RPGs. And finding any possible excuse to make a spreadsheet.',
-      };
-
-      // ============================================================
-      // Rendering — no need to edit below this line
-      // ============================================================
-
-      function render() {
-        document.title = CV.name + ' — CV';
-
-        const nameParts = CV.name.trim().split(' ');
-        const lastName = nameParts.pop();
-        const firstName = nameParts.join(' ');
-        document.getElementById('name').innerHTML =
-          `<span class="name-first">${firstName}</span><span class="name-last">${lastName}</span>`;
-
-        const photoBox = document.getElementById('photo-box');
-        if (CV.photo) {
-          photoBox.innerHTML = `<img src="${CV.photo}" alt="Photo">`;
-        }
-
-        const icons = {
-          phone: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.99 5.99l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
-          email: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>`,
-          location: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
-          linkedin: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
-        };
-        document.getElementById('contact').innerHTML = CV.contact
-          .map((x) => `<li>${icons[x.icon]}<span>${x.text}</span></li>`)
-          .join('');
-        document.getElementById('languages').innerHTML = CV.languages.map((x) => `<li>${x}</li>`).join('');
-        document.getElementById('technologies').innerHTML = CV.technologies
-          .map((x) => `<div class="tech-group"><p>${x}</p></div>`)
-          .join('');
-
-        document.getElementById('profile').innerHTML = CV.profile.map((x) => `<p>${x}</p>`).join('');
-
-        document.getElementById('work').innerHTML = CV.work
-          .map(
-            (job) => `
-      <div class="entry">
-        <div class="entry-date">${job.dates}</div>
-        <div class="entry-body">
-          <div class="entry-company">${job.company}</div>
-          <div class="entry-role">${job.role}</div>
-          <div class="entry-bullets">${job.bullets.map((b) => `<p>${b}</p>`).join('')}</div>
-        </div>
-      </div>`,
-          )
-          .join('');
-
-        document.getElementById('education').innerHTML = CV.education
-          .map(
-            (e) => `
-      <div class="entry">
-        <div class="entry-date">${e.year}</div>
-        <div class="entry-body">
-          <div class="entry-role">${e.degree}</div>
-          <div class="entry-detail">${e.field}</div>
-          <div class="entry-detail">${e.school}</div>
-        </div>
-      </div>`,
-          )
-          .join('');
-
-        document.getElementById('hobbies').textContent = CV.hobbies;
-      }
-
-      document.addEventListener('DOMContentLoaded', render);
-    </script>
   </head>
   <body>
     <div class="page">
@@ -428,5 +54,70 @@
         </div>
       </main>
     </div>
+    <script src="cv-data.js"></script>
+    <script>
+      function render() {
+        document.title = CV.name + ' — CV';
+
+        const nameParts = CV.name.trim().split(' ');
+        const lastName = nameParts.pop();
+        const firstName = nameParts.join(' ');
+        document.getElementById('name').innerHTML =
+          `<span class="name-first">${firstName}</span><span class="name-last">${lastName}</span>`;
+
+        const photoBox = document.getElementById('photo-box');
+        if (CV.photo) {
+          photoBox.innerHTML = `<img src="${CV.photo}" alt="Photo">`;
+        }
+
+        const icons = {
+          phone: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.05 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 9.91a16 16 0 0 0 5.99 5.99l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>`,
+          email: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>`,
+          location: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+          linkedin: `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#4a9e9e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>`,
+        };
+        document.getElementById('contact').innerHTML = CV.contact
+          .map((x) => `<li>${icons[x.icon]}<span>${x.text}</span></li>`)
+          .join('');
+        document.getElementById('languages').innerHTML = CV.languages.map((x) => `<li>${x}</li>`).join('');
+        document.getElementById('technologies').innerHTML = CV.technologies
+          .map((x) => `<div class="tech-group"><p>${x}</p></div>`)
+          .join('');
+
+        document.getElementById('profile').innerHTML = CV.profile.map((x) => `<p>${x}</p>`).join('');
+
+        document.getElementById('work').innerHTML = CV.work
+          .map(
+            (job) => `
+          <div class="entry">
+            <div class="entry-date">${job.dates}</div>
+            <div class="entry-body">
+              <div class="entry-company">${job.company}</div>
+              <div class="entry-role">${job.role}</div>
+              <div class="entry-bullets">${job.bullets.map((b) => `<p>${b}</p>`).join('')}</div>
+            </div>
+          </div>`,
+          )
+          .join('');
+
+        document.getElementById('education').innerHTML = CV.education
+          .map(
+            (e) => `
+          <div class="entry">
+            <div class="entry-date">${e.year}</div>
+            <div class="entry-body">
+              <div class="entry-role">${e.degree}</div>
+              <div class="entry-detail">${e.field}</div>
+              <div class="entry-detail">${e.school}</div>
+            </div>
+          </div>`,
+          )
+          .join('');
+
+        document.getElementById('hobbies').textContent = CV.hobbies;
+      }
+
+      document.addEventListener('DOMContentLoaded', render);
+    </script>
   </body>
 </html>
