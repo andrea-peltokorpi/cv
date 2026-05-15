@@ -205,6 +205,10 @@ body {
 }
 
 @media print {
+  html {
+    background: #1a3d3d;
+  }
+
   body {
     background: #fff;
   }
