@@ -8,7 +8,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const PORT = 3456;
-const OUTPUT = path.join(__dirname, 'cv.pdf');
+const OUTPUT = path.join(__dirname, 'cv-andrea-peltokorpi.pdf');
 
 const MIME = {
   '.html': 'text/html',
