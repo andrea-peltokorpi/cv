@@ -1,0 +1,24 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cv-data.js",
+  "scripts": {
+    "print": "node watch.js --once",
+    "watch": "node watch.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ap.github.com:andrea-peltokorpi/cv.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "chokidar": "^5.0.0",
+    "puppeteer": "^24.43.1",
+    "serve": "^14.2.6"
+  }
+}
