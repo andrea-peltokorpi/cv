@@ -16,6 +16,7 @@ body {
   background: #fff;
   line-height: 1.3;
   letter-spacing: -0.03em;
+  text-align: justify;
 }
 
 /* ── Page shell ── */
@@ -50,6 +51,7 @@ body {
   gap: 0;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
+  text-align: start;
 }
 
 .photo-box {
@@ -141,7 +143,6 @@ body {
 }
 
 .profile-text p {
-  text-align: justify;
   margin-bottom: 3mm;
 }
 
@@ -190,17 +191,12 @@ body {
 }
 
 .entry-bullets p {
-  text-align: justify;
   margin-bottom: 3mm;
   font-size: 11pt;
 }
 
 .entry-bullets p:last-child {
   margin-bottom: 0;
-}
-
-.hobbies-text {
-  text-align: justify;
 }
 
 /* ── Print ── */

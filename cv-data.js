@@ -13,7 +13,7 @@ const CV = {
 
   // Each item becomes its own paragraph group in the sidebar
   technologies: [
-    'TypeScript, JavaScript, React,',
+    'TypeScript, JavaScript, React',
     'Node.js, PostgreSQL, AWS',
     'Clojure, PHP, Drupal',
     'GitHub Copilot, Claude Code, Amazon Q',
