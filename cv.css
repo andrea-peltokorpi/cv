@@ -166,6 +166,16 @@ body {
   margin-bottom: 5mm;
 }
 
+.entry-note {
+  font-weight: 400;
+  font-style: italic;
+}
+
+.entry-note-sep {
+  font-style: normal;
+  margin: 0 2.5mm;
+}
+
 .entry-role {
   font-weight: 400;
   font-style: italic;

@@ -28,8 +28,9 @@ const CV = {
   work: [
     {
       dates: '2022—Present',
-      role: 'Developer',
-      company: 'Nordcloud Oy',
+      role: 'Application Developer',
+      company: 'IBM',
+      note: 'Formerly Nordcloud',
       bullets: [
         'Full-stack development on multiple public sector projects.',
         'Multi-year development on a transport infra-structure management system. Built on AWS with Clojure, TypeScript and React.',
@@ -39,7 +40,7 @@ const CV = {
     {
       dates: '2020—2022',
       role: 'Developer',
-      company: 'Exove Oy',
+      company: 'Exove',
       bullets: [
         'Full-stack development across multiple public-facing projects. Primarily Drupal/PHP with JavaScript, React, Node.js.',
       ],

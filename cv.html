@@ -92,7 +92,7 @@
           <div class="entry">
             <div class="entry-date">${job.dates}</div>
             <div class="entry-body">
-              <div class="entry-company">${job.company}</div>
+              <div class="entry-company">${job.company}${job.note ? `<span class="entry-note"><span class="entry-note-sep">&bull;</span>${job.note}</span>` : ''}</div>
               <div class="entry-role">${job.role}</div>
               <div class="entry-bullets">${job.bullets.map((b) => `<p>${b}</p>`).join('')}</div>
             </div>
