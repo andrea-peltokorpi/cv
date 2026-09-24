@@ -1,6 +1,6 @@
 const CV = {
   name: 'Andrea Peltokorpi',
-  photo: 'photos/photo.jpg',
+  photo: 'photos/photo.jpeg',
 
   contact: [
     { icon: 'phone', text: '+358 40 685 9920' },
